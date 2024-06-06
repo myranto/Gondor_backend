@@ -1,3 +1,4 @@
+backend sy Gimli tode mitambatra ato XD, table ray ihany koa no iasana du coup...XD
 -Partie backend:
 	Rehefa mety ny db zay vao decommentena lay dependance ao am pom.xml(postgres sy jpa), 
 
