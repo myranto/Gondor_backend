@@ -1,0 +1,4 @@
+-Partie backend:
+	Rehefa mety ny db zay vao decommentena lay dependance ao am pom.xml(postgres sy jpa), 
+
+sinon miasa amin'ny partie daholo ny persona tsirairay
