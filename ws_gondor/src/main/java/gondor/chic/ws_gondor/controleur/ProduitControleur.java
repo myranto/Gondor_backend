@@ -24,10 +24,21 @@ public class ProduitControleur {
         this.produitService = produitService;
     }
 
-    @GetMapping()
+    @GetMapping("/du-jour")
     public String getProduitDuJour() {
         try {
             return this.objectMapper.writeValueAsString(this.produitService.rechercherProduitDuJour());
+        } catch (JsonProcessingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    @GetMapping("/")
+    public String getProduits() {
+        try {
+            return this.objectMapper.writeValueAsString(this.produitService.listerTousLesProduits());
         } catch (JsonProcessingException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
