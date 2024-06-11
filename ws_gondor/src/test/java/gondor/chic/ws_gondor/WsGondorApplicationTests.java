@@ -32,9 +32,9 @@ class WsGondorApplicationTests {
     @Test
     @Order(1)
     void ajouterProduit(){
-        Produit produit1 = new Produit(null, "Figurine Lego Bilbo", new Float(30.5), false, 3);
-        Produit produit2 = new Produit(null, "Anneau magique", new Float(120), true, 1);
-        Produit produit3 = new Produit(null, "Arc + flèches(10)", new Float(50), false, 1);
+        Produit produit1 = new Produit(null,null, "Figurine Lego Bilbo", new Float(30.5), false, 3, "");
+        Produit produit2 = new Produit(null,null, "Anneau magique", new Float(120), true, 1, "");
+        Produit produit3 = new Produit(null,null, "Arc + flèches(10)", new Float(50), false, 1, "");
         List<Produit>produits = new ArrayList<Produit>();
         produits.add(produit1);
         produits.add(produit2);
