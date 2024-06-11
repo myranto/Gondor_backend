@@ -2,7 +2,7 @@ CREATE DATABASE gondor_chic;
 CREATE USER gondor_chic WITH PASSWORD 'gondor_chic';
 ALTER DATABASE gondor_chic OWNER TO gondor_chic;
 
-CREATE TABLE Produit(
+CREATE TABLE t_produit(
     id VARCHAR(10) PRIMARY KEY,
     reference VARCHAR(10) NOT NULL,
     libelle VARCHAR(35) NOT NULL,
