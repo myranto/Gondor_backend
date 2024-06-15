@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import gondor.chic.ws_gondor.metierServices.ProduitManager;
+import gondor.chic.ws_gondor.metierServices.metierRelationel.Produit;
 
 // @RequestMapping(path = "api/v1/produits")
 @RestController
@@ -34,6 +35,20 @@ public class ProduitControleur {
             return "error";
         }
     }
+
+    @PostMapping("/du-jour")
+    public String setProduitDuJour(@RequestBody Produit produit) {
+        try {
+            String reference = produit.getReference();
+            this.produitService.setProduitDuJour(reference);
+            return this.objectMapper.writeValueAsString(this.produitService.rechercherProduitDuJour());
+        } catch (JsonProcessingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
 
     @GetMapping("/")
     public String getProduits() {

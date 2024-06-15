@@ -26,6 +26,11 @@ public class ProduitManager {
         return produitDuJour;
     }
 
+    public void setProduitDuJour(String reference){
+        this.produitRepository.removeProduitDuJour();
+        this.produitRepository.setProduitDuJour(reference);       
+    }
+
     // for test purposes
     public Produit ajouterProduit(Produit produit){
         return this.produitRepository.save(produit);
