@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,6 +13,7 @@ import jakarta.persistence.Table;
 @Table(name="t_produit")
 public class Produit {
     @Id()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "varchar")
     private String id;
     @Column(columnDefinition = "varchar")
