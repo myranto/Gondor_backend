@@ -1,18 +1,22 @@
 package gondor.chic.ws_gondor.metierServices.metierRelationel;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity()
 @Table(name = "t_client")
 public class Client {
-    @Id()
-    @Column(columnDefinition = "varchar(10)")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(generator = "custom-id")
+    @GenericGenerator(name = "custom-id", strategy = "gondor.chic.ws_gondor.metierServices.metierRelationel.CustomIdGenerator")
     private String numero;
     @Column(columnDefinition = "varchar(35)")
     private String pseudo;
@@ -27,8 +31,7 @@ public class Client {
     @Column(columnDefinition = "text")
     private String profil;
 
-    public Client(String numero ,String pseudo ,String motdepasse ,String nom ,String prenom ,String email ,String profil){
-        this.numero = numero;
+    public Client(String pseudo ,String motdepasse ,String nom ,String prenom ,String email ,String profil){
         this.pseudo = pseudo;
         this.motdepasse = motdepasse;
         this.nom = nom;

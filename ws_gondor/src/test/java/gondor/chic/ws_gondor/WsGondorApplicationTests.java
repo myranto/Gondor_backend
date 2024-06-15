@@ -74,7 +74,7 @@ class WsGondorApplicationTests {
     @Test
     @Order(4)
     void ajouterClient(){
-        Client client = new Client(null, "Pilou", "mdp", "Caleb", "Stonewall", "cabel@gmail.com", "path.jpg");
+        Client client = new Client("Pilou", "mdp", "Caleb", "Stonewall", "cabel@gmail.com", "path.jpg");
         clientManager.ajouterClient(client);
     }
 }

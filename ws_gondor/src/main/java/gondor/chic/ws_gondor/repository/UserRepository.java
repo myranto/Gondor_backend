@@ -9,7 +9,7 @@ import gondor.chic.ws_gondor.metierServices.metierRelationel.Client;
 import gondor.chic.ws_gondor.metierServices.metierRelationel.Produit;
 
 public interface UserRepository extends JpaRepository<Client, String>,
-        JpaSpecificationExecutor<Produit> {
+        JpaSpecificationExecutor<Client> {
 
     @Query(value = "select * from t_client where pseudo = :pseudo LIMIT 1", nativeQuery = true)
     Client rechercherClientParPseudo(@Param("pseudo") String pseudo);
