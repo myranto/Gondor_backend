@@ -1,9 +1,7 @@
-package gondor.chic.ws_gondor.metierServices.metierRelationel;
+package gondor.chic.ws_gondor.metier.metierRelationel;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

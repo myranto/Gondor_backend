@@ -3,10 +3,6 @@ package gondor.chic.ws_gondor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.atMost;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -16,10 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import gondor.chic.ws_gondor.metierServices.ClientServiceImp;
-import gondor.chic.ws_gondor.metierServices.ProduitManager;
-import gondor.chic.ws_gondor.metierServices.metierRelationel.Client;
-import gondor.chic.ws_gondor.metierServices.metierRelationel.Produit;
+import gondor.chic.ws_gondor.metier.ClientServiceImp;
+import gondor.chic.ws_gondor.metier.ProduitManager;
+import gondor.chic.ws_gondor.metier.metierRelationel.Client;
 
 @SpringBootTest()
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

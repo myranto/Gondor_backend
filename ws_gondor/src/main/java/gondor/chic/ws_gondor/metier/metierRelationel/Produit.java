@@ -1,6 +1,4 @@
-package gondor.chic.ws_gondor.metierServices.metierRelationel;
-
-import org.hibernate.annotations.GenericGenerator;
+package gondor.chic.ws_gondor.metier.metierRelationel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

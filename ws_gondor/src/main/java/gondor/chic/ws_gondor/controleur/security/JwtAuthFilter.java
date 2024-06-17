@@ -10,7 +10,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import gondor.chic.ws_gondor.metierServices.ClientServiceImp;
+import gondor.chic.ws_gondor.metier.ClientServiceImp;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -51,6 +51,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         username = jwtService.extractUsername(token);
 
         if (username != null) {
+            System.out.println("mandalo ato");
             UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(username);
             if (jwtService.validateToken(token, userDetails)) {
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(

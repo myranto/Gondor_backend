@@ -8,17 +8,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import gondor.chic.ws_gondor.controleur.security.AuthRequestDTO;
 import gondor.chic.ws_gondor.controleur.security.JwtService;
-import gondor.chic.ws_gondor.metierServices.ClientServiceImp;
+import gondor.chic.ws_gondor.metier.ClientServiceImp;
 
 @RestController
 @RequestMapping(path = "/")
+@CrossOrigin("*")
 public class AuthControleur {
 
     @Autowired
@@ -30,15 +28,21 @@ public class AuthControleur {
 
 
     @PostMapping("/login")
-    public String AuthenticateAndGetToken(@RequestBody AuthRequestDTO authRequestDTO){
+    public TokenUser AuthenticateAndGetToken(@RequestBody AuthRequestDTO authRequestDTO){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequestDTO.getUsername(), authRequestDTO.getPassword()));
         logger.debug("user authenticated",authentication.getCredentials());
         if(authentication.isAuthenticated()){
-        return jwtService.GenerateToken(authRequestDTO.getUsername()); //.build();
+            System.out.println("connecter avec success");
+        return new TokenUser(authentication.getName(),jwtService.GenerateToken(authRequestDTO.getUsername())); //.build();
         // return JwtResponseDTO.builder()
         //         .accessToken(jwtService.GenerateToken(authRequestDTO.getUsername()).build();
         } else {
             throw new UsernameNotFoundException("invalid user request..!!");
         }
+//        return "connected";
     }
+//    @PostMapping("/login")
+//    public ResponseEntity<?> login(@RequestBody AuthRequestDTO authRequestDTO){
+//        return ResponseEntity.ok(authRequestDTO);
+//    }
 }
