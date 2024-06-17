@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import gondor.chic.ws_gondor.metier.metierRelationel.Produit;
 
-public interface ProduitRepository extends JpaRepository<Produit, String>,
+public interface ProduitRepository extends JpaRepository<Produit, String>, 
         JpaSpecificationExecutor<Produit> {
 
     @Query(value = "select * from t_produit where estdujour = true LIMIT 1", nativeQuery = true)
