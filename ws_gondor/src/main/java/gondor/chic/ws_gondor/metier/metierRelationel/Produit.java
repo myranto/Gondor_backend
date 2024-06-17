@@ -1,10 +1,9 @@
-package gondor.chic.ws_gondor.metierServices.metierRelationel;
-
-import org.hibernate.annotations.GenericGenerator;
+package gondor.chic.ws_gondor.metier.metierRelationel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,6 +11,7 @@ import jakarta.persistence.Table;
 @Table(name="t_produit")
 public class Produit {
     @Id()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "varchar")
     private String id;
     @Column(columnDefinition = "varchar")

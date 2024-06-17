@@ -7,14 +7,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import gondor.chic.ws_gondor.metierServices.ProduitManager;
-import gondor.chic.ws_gondor.metierServices.metierRelationel.Produit;
+import gondor.chic.ws_gondor.metier.ProduitManager;
 
 // @RequestMapping(path = "api/v1/produits")
 @RestController
 @RequestMapping(path = "/")
-
-@CrossOrigin(origins = "*")
+@CrossOrigin
 public class ProduitControleur {
     @SuppressWarnings("unused")
     private final ProduitManager produitService;

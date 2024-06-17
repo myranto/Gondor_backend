@@ -1,16 +1,12 @@
-package gondor.chic.ws_gondor.metierServices;
+package gondor.chic.ws_gondor.metier;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import gondor.chic.ws_gondor.metierServices.metierRelationel.Produit;
+import gondor.chic.ws_gondor.metier.metierRelationel.Produit;
 import gondor.chic.ws_gondor.repository.ProduitRepository;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
 
 @Service()
 public class ProduitManager {
