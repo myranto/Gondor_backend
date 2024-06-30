@@ -1,4 +1,4 @@
-package gondor.chic.ws_gondor.metier.metierRelationel;
+package gondor.chic.ws_gondor.metier.modele;
 
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
@@ -16,10 +16,10 @@ public class CustomIdGenerator implements IdentifierGenerator {
         Connection connection = null;
         try {
             connection = session
-                .getJdbcCoordinator()
-                .getLogicalConnection()
-                .getPhysicalConnection();
-            
+                    .getJdbcCoordinator()
+                    .getLogicalConnection()
+                    .getPhysicalConnection();
+
             try (Statement statement = connection.createStatement()) {
                 ResultSet rs = statement.executeQuery("SELECT nextval('sClient')");
                 if (rs.next()) {

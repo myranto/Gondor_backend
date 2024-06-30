@@ -1,11 +1,11 @@
-package gondor.chic.ws_gondor.metier;
+package gondor.chic.ws_gondor.metier.metierServices;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import gondor.chic.ws_gondor.metier.metierRelationel.Produit;
+import gondor.chic.ws_gondor.metier.modele.Produit;
 import gondor.chic.ws_gondor.repository.ProduitRepository;
 
 @Service()

@@ -12,9 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import gondor.chic.ws_gondor.metier.ClientServiceImp;
-import gondor.chic.ws_gondor.metier.ProduitManager;
-import gondor.chic.ws_gondor.metier.metierRelationel.Client;
+import gondor.chic.ws_gondor.metier.metierServices.ClientManager;
+import gondor.chic.ws_gondor.metier.metierServices.ProduitManager;
+import gondor.chic.ws_gondor.metier.modele.Client;
 
 @SpringBootTest()
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -23,7 +23,7 @@ class WsGondorApplicationTests {
     @Autowired()
     private ProduitManager produitManager;
     @Autowired()
-    private ClientServiceImp clientManager;
+    private ClientManager clientManager;
 
     @Test
     void contextLoads() {

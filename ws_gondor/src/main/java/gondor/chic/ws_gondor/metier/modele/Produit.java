@@ -1,4 +1,4 @@
-package gondor.chic.ws_gondor.metier.metierRelationel;
+package gondor.chic.ws_gondor.metier.modele;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

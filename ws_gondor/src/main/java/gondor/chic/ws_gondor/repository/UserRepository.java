@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import gondor.chic.ws_gondor.metier.metierRelationel.Client;
+import gondor.chic.ws_gondor.metier.modele.Client;
 
 public interface UserRepository extends JpaRepository<Client, String>,
         JpaSpecificationExecutor<Client> {

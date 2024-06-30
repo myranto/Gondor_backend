@@ -1,4 +1,4 @@
-package gondor.chic.ws_gondor.metier;
+package gondor.chic.ws_gondor.metier.metierServices;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,33 +9,39 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import gondor.chic.ws_gondor.metier.metierRelationel.Client;
-import gondor.chic.ws_gondor.metier.metierRelationel.CustomUserDetails;
+import gondor.chic.ws_gondor.metier.modele.Client;
 import gondor.chic.ws_gondor.repository.UserRepository;
 
 @Component
-public class ClientServiceImp implements UserDetailsService {
+public class ClientManager implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-    private static final Logger logger = LoggerFactory.getLogger(ClientServiceImp.class);
+    private static final Logger logger = LoggerFactory.getLogger(ClientManager.class);
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        logger.debug("Entering in loadUserByUsername Method...");
-        Client user = userRepository.rechercherClientParPseudo(username);
-        
-        if (user == null) {
-            logger.error("Username not found: " + username);
-            throw new UsernameNotFoundException("could not found user..!!");
-        }
-        logger.info("User Authenticated Successfully..!!!");
-        return new CustomUserDetails(user);
+//
+//        logger.debug("Entering in loadUserByUsername Method...");
+//        Client user = userRepository.rechercherClientParPseudo(username);
+//
+//        if (user == null) {
+//            logger.error("Username not found: " + username);
+//            throw new UsernameNotFoundException("could not found user..!!");
+//        }
+//        logger.info("User Authenticated Successfully..!!!");
+//        return new CustomUserDetails(user);
+        return  null;
     }
-
+    public Client login(String username, String password) throws UsernameNotFoundException {
+        Client user = userRepository.rechercherClientParPseudo(username);
+        if (user != null) {
+            return user;
+        }
+         throw new UsernameNotFoundException("could not found user"+username+"..!!");
+    }
     public void ajouterClient(Client client){
         client.setMotdepasse(bCryptPasswordEncoder.encode(client.getMotDePasse()));
         this.userRepository.save(client);

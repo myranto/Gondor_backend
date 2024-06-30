@@ -1,4 +1,4 @@
-package gondor.chic.ws_gondor.metier.metierRelationel;
+package gondor.chic.ws_gondor.metier.modele;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -15,7 +15,7 @@ public class Client {
     @GeneratedValue(generator = "custom-id")
 //    eto koa nisoloiko metier le metierServices
 //    @GenericGenerator(name = "custom-id", strategy = "gondor.chic.ws_gondor.metierServices.metierRelationel.CustomIdGenerator")
-    @GenericGenerator(name = "custom-id", strategy = "gondor.chic.ws_gondor.metier.metierRelationel.CustomIdGenerator")
+    @GenericGenerator(name = "custom-id", strategy = "gondor.chic.ws_gondor.metier.modele.CustomIdGenerator")
     private String numero;
     @Column(columnDefinition = "varchar(35)")
     private String pseudo;
@@ -47,6 +47,54 @@ public class Client {
 
     public String getMotDePasse(){
         return this.motdepasse;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public String getMotdepasse() {
+        return motdepasse;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getProfil() {
+        return profil;
+    }
+
+    public void setProfil(String profil) {
+        this.profil = profil;
     }
 
     public void setMotdepasse(String motdepasse){

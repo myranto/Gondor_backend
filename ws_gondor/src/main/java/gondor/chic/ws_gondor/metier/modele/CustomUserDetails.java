@@ -1,4 +1,4 @@
-package gondor.chic.ws_gondor.metier.metierRelationel;
+package gondor.chic.ws_gondor.metier.modele;
 
 import java.util.ArrayList;
 import java.util.Collection;

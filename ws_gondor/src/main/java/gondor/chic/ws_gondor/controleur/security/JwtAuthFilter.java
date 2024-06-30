@@ -10,7 +10,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import gondor.chic.ws_gondor.metier.ClientServiceImp;
+import gondor.chic.ws_gondor.metier.metierServices.ClientManager;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -20,10 +20,10 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
     private JwtService jwtService;
-    private ClientServiceImp userDetailsServiceImpl;
+    private ClientManager userDetailsServiceImpl;
 
     @Autowired
-    public JwtAuthFilter(JwtService jwtService, ClientServiceImp userDetailsServiceImpl) {
+    public JwtAuthFilter(JwtService jwtService, ClientManager userDetailsServiceImpl) {
         this.jwtService = jwtService;
         this.userDetailsServiceImpl = userDetailsServiceImpl;
     }

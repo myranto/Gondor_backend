@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import gondor.chic.ws_gondor.metier.ClientServiceImp;
+import gondor.chic.ws_gondor.metier.metierServices.ClientManager;
 
 @Configuration
 @EnableWebSecurity
@@ -29,7 +29,7 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return new ClientServiceImp();
+        return new ClientManager();
     }
 
     @Bean
