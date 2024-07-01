@@ -1,4 +1,4 @@
-package gondor.chic.ws_gondor.controleur.security;
+package gondor.chic.ws_gondor.metier.modele;
 
 public class AuthRequestDTO {
 

@@ -1,15 +1,13 @@
 package gondor.chic.ws_gondor.controleur;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import gondor.chic.ws_gondor.controleur.security.AuthRequestDTO;
+import gondor.chic.ws_gondor.metier.modele.AuthRequestDTO;
 import gondor.chic.ws_gondor.metier.metierServices.ClientManager;
 import gondor.chic.ws_gondor.metier.metierServices.ProduitManager;
 import gondor.chic.ws_gondor.metier.modele.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,7 +28,7 @@ public class SessionPasserCde {
         try {
             Client login = serviceImp.login(authRequestDTO.getUsername(), authRequestDTO.getPassword());
             return ResponseEntity.ok(login);
-        }catch (UsernameNotFoundException e) {
+        }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
