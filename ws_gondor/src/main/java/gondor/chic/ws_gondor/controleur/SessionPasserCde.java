@@ -36,24 +36,28 @@ public class SessionPasserCde {
     }
 
     @GetMapping("/du-jour")
-    public String getProduitDuJour() {
+    public ResponseEntity<?> getProduitDuJour() {
         try {
-            return this.objectMapper.writeValueAsString(this.produitService.rechercherProduitDuJour());
-        } catch (JsonProcessingException e) {
+            //return this.objectMapper.writeValueAsString(this.produitService.rechercherProduitDuJour());
+            return ResponseEntity.ok(this.produitService.rechercherProduitDuJour());
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return "error";
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+
         }
     }
 
     @GetMapping("/")
-    public String getProduits() {
+    public ResponseEntity<?> getProduits() {
         try {
-            return this.objectMapper.writeValueAsString(this.produitService.listerTousLesProduits());
-        } catch (JsonProcessingException e) {
+            return ResponseEntity.ok(this.produitService.listerTousLesProduits());
+           // return this.objectMapper.writeValueAsString(this.produitService.listerTousLesProduits());
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return "error";
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+            //return "error";
         }
     }
 }
